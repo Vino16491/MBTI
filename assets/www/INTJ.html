@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<title></title>
+
+	<style>
+
+		
+		body 
+		{
+			font-family:"Comic Sans MS", cursive, sans-serif;
+			font-weight: bold;
+			font-style: italic;
+      		background-color: #EFD9DC;
+		}
+
+		img.avatar 
+		{
+   			width: 50%;
+    		border-radius: 70%;
+    	}
+
+		button 
+		{
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 14px 20px;
+		    margin: 8px 0;
+		    border: none;
+		    cursor: pointer;
+		    width: 100%;
+		}
+
+	</style>
+
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+
+		var user = localStorage.getItem("username");
+
+		//alert(user);		
+	
+		function onBodyLoad()
+		{
+	   		document.addEventListener("deviceready",onDeviceReady,false);
+		}		
+		
+		function onDeviceReady()
+		{
+    		 //alert("PhoneGap is ready");			
+		}
+
+		function exitFromApp()
+        {
+             navigator.app.exitApp();
+        }
+
+
+
+</script>
+
+</head>
+<body onload="onBodyLoad()">
+<form name="Home">
+<div>
+<p>Thank You for completing the test, Here are Your results</p>
+<p><b>Your Personality type is INTJ</b></p>
+
+</div>
+
+<div class="imgcontainer">
+	<p>One of the famous person who has INTJ personality is Isaac Newton</p>
+    <img src="INTJ.jpg" alt="Avatar" class="avatar">
+</div>
+
+<div>
+<p>The personality test is based on Myers-Briggs Type Indicator (MBTI)</p>
+<br/>
+<p>INTJs are analytical problem-solvers, eager to improve systems and processes with their innovative ideas. They have a talent for seeing possibilities for improvement, whether at work, at home, or in themselves.
+Often intellectual, INTJs enjoy logical reasoning and complex problem-solving. They approach life by analyzing the theory behind what they see, and are typically focused inward, on their own thoughtful study of the world around them. INTJs are drawn to logical systems and are much less comfortable with the unpredictable nature of other people and their emotions. They are typically independent and selective about their relationships, preferring to associate with people who they find intellectually stimulating.</p>
+
+</div>
+<div>
+<button type="button" onclick="exitFromApp();">Close</button>
+</div>
+
+</form>
+
+</body>
+</html>

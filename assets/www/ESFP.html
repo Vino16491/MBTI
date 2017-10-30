@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<title></title>
+
+	<style>
+
+		
+		body 
+		{
+			font-family:"Comic Sans MS", cursive, sans-serif;
+			font-weight: bold;
+			font-style: italic;
+      		background-color: #EFD9DC;
+		}
+
+		img.avatar 
+		{
+   			width: 50%;
+    		border-radius: 70%;
+    	}
+
+		button 
+		{
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 14px 20px;
+		    margin: 8px 0;
+		    border: none;
+		    cursor: pointer;
+		    width: 100%;
+		}
+
+	</style>
+
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+
+		var user = localStorage.getItem("username");
+
+		//alert(user);		
+	
+		function onBodyLoad()
+		{
+	   		document.addEventListener("deviceready",onDeviceReady,false);
+		}		
+		
+		function onDeviceReady()
+		{
+    		 //alert("PhoneGap is ready");			
+		}
+
+		function exitFromApp()
+        {
+             navigator.app.exitApp();
+        }
+
+
+
+</script>
+
+</head>
+<body onload="onBodyLoad()">
+<form name="Home">
+<div>
+<p>Thank You for completing the test, Here are Your results</p>
+<p><b>Your Personality type is ESFP</b></p>
+
+</div>
+
+<div class="imgcontainer">
+	<p>One of the famous person who has ESFP personality is Bill Clinton</p>
+    <img src="ESFP.jpg" alt="Avatar" class="avatar">
+</div>
+
+<div>
+<p>The personality test is based on Myers-Briggs Type Indicator (MBTI)</p>
+<br/>
+<p>ESFPs are vivacious entertainers who charm and engage those around them. They are spontaneous, energetic, and fun-loving, and take pleasure in the things around them: food, clothes, nature, animals, and especially people.
+ESFPs are typically warm and talkative and have a contagious enthusiasm for life. They like to be in the middle of the action and the center of attention. They have a playful, open sense of humor, and like to draw out other people and help them have a good time.</p>
+
+</div>
+<div>
+<button type="button" onclick="exitFromApp();">Close</button>
+</div>
+
+</form>
+
+</body>
+</html>

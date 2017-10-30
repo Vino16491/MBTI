@@ -1,0 +1,608 @@
+<html>
+<head>
+<title>Radio</title>
+
+<style>
+
+		body 
+		{
+			font-family:"Comic Sans MS", cursive, sans-serif;
+			font-weight: bold;
+			font-style: italic;
+
+    		background-color: #EFD9DC;
+   		}
+
+		button 
+		{
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 14px 20px;
+		    margin: 8px 0;
+		    border: none;
+		    cursor: pointer;
+		    width: 100%;
+		}
+
+	</style>
+
+
+
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script language="javascript">
+
+var Extravert=0;
+var Introvert=0;
+
+var Sensing=0;
+var Intuitive=0;
+
+var Thinking=0;
+var Feeling=0;
+
+var Judging=0;
+var Perceiving=0;
+
+
+var temp=0;
+var temp2=0;
+var temp3=0;
+var temp4=0;
+var user = localStorage.getItem("username");
+
+
+function behavior()
+{
+	var behavior1  = temp + temp2 + temp3 + temp4;
+
+	//alert("other behavior" + behavior1);
+
+
+		if(behavior1 === "ExtavertSensingThinkingJudging")
+		{
+			alert("estj");
+			//document.write("<p>You are ESTJ</p>");
+			window.location.href="ESTJ.html";
+		}
+		else if(behavior1 === "ExtavertSensingFeelingJudging")
+		{
+			alert("esfj");
+			window.location.href="ESFJ.html";		
+		}
+		else if(behavior1 === "IntrovertSensingThinkingJudging")
+		{
+			alert("istj");
+			window.location.href="ISTJ.html";
+		}
+		else if(behavior1 === "IntrovertSensingFeelingJudging")
+		{
+			alert("isfj");
+			window.location.href="ISFJ.html";
+		}
+
+		else if(behavior1 === "ExtravertSensingThinkingPerceiving")
+		{
+			alert("ESTP");
+			window.location.href="ESTP.html";
+		}
+
+		else if(behavior1 === "ExtravertSensingFeelingPerceiving")
+		{
+			alert("Esfp");
+			window.location.href="ESFP.html";
+		}
+
+		else if(behavior1 === "IntrovertSensingThinkingPerceiving")
+			{
+				alert("istp");
+				window.location.href="ISTP.html";
+			}
+
+		else if(behavior1 === "IntrovertSensingFeelingPerceiving")
+			{
+				alert("isfp");
+				window.location.href="ISFP.html";
+			}
+
+		else if(behavior1 === "ExtravertIntuitiveThinkingJudging")
+			{
+				alert("entj");
+				window.location.href="ENTJ.html";
+			}
+
+		else if(behavior1 === "ExtravertIntuitiveThinkingPerceiving")
+			{
+				alert("entp");
+				window.location.href="ENTP.html";
+			}
+		else if(behavior1 === "IntrovertIntuitiveThinkingJudging")
+			{
+				alert("intj");
+				window.location.href="INTJ.html";
+			}
+
+		else if(behavior1 === "IntrovertIntuitiveThinkingPerceiving")
+			{
+				alert("intp");
+				window.location.href="INTP.html";
+			}
+
+		else if(behavior1 === "ExtravertIntuitiveFeelingJudging")
+			{
+				alert("enfj");
+				window.location.href="ENFJ.html";
+			}
+
+		else if(behavior1 === "ExtravertIntuitiveFeelingPerceiving")
+			{
+				alert("enfp");
+				window.location.href="ENFP.html";
+			}
+
+		else if(behavior1 === "IntrovertIntuitiveFeelingJudging")
+			{
+				alert("infj");
+				window.location.href="INFJ.html";
+			}
+
+		else if(behavior1 === "IntrovertIntuitiveFeelingPerceiving")
+			{
+				alert("entp");
+				window.location.href="ENTP.html";
+			}
+
+		else{
+			alert("Please attend the test again");
+		}
+	
+
+}
+
+//alert(user);
+
+function dataSubmit()
+{
+	//alert("dataSubmit");
+
+	var Q1 = document.querySelector('input[name = "Q1"]:checked').value;
+	var Q5 = document.querySelector('input[name = "Q5"]:checked').value;
+	var Q9 = document.querySelector('input[name = "Q9"]:checked').value;
+	var Q13 = document.querySelector('input[name = "Q13"]:checked').value;
+	var Q17 = document.querySelector('input[name = "Q17"]:checked').value;
+
+	//alert("variables defined");
+
+	if(Q1 == "1A"){
+	     Extravert++;
+	}else{
+		 Introvert++;
+	}
+
+	if(Q5 == "5A"){
+		Extravert++;
+	}else{
+		Introvert++;
+	}
+
+	if(Q9 == "9A"){
+		Extravert++;
+	}else{
+		Introvert++;
+	}
+
+	if(Q13 == "13A"){
+		Extravert++;
+	}else{
+		Introvert++;
+	}
+
+	if(Q17 == "17A"){
+		Extravert++;
+	}else{
+		Introvert++;
+	}
+
+	alert("questions checked");
+
+	if(Extravert>Introvert)
+	{
+		//document.getElementById('tempOne').innerHTML="You are Extravert";
+		alert("You are Extravert");
+		temp="Extravert";
+		
+
+	}
+	else
+	{
+		//document.getElementById('tempOne').innerHTML="You are Introvert";
+		alert("You are Introvert");
+		temp="Introvert";
+		
+	}
+
+	//alert("questions verified");
+
+	//alert("Block2 function");
+	Block2();
+	
+	//alert("Block2 function success and Block3 start");
+
+	Block3();
+	//alert("Block3 function success and Block4 start");
+
+	Block4();
+	//alert("Block4 function Finish");	
+	
+	insert();
+	//alert("Insert function start");
+
+	behavior();
+	//alert("dataSubmit success")
+
+
+}
+
+function Block2(){
+
+var Q2 = document.querySelector('input[name = "Q2"]:checked').value;
+var Q6 = document.querySelector('input[name = "Q6"]:checked').value;
+var Q10 = document.querySelector('input[name = "Q10"]:checked').value;
+var Q14 = document.querySelector('input[name = "Q14"]:checked').value;
+var Q18 = document.querySelector('input[name = "Q18"]:checked').value;
+
+if(Q2 == "2A"){
+	Sensing++;
+}else{
+	Intuitive++;
+}
+
+if(Q6 == "6A"){
+	Sensing++;
+}else{
+	Intuitive++;
+}
+
+if(Q10 == "10A"){
+	Sensing++;
+}else{
+	Intuitive++;
+}
+
+if(Q14 == "14A"){
+	Sensing++;
+}else{
+	Intuitive++;
+}
+
+if(Q18 == "18A"){
+	Sensing++;
+}else{
+	Intuitive++;
+}
+
+	if(Sensing>Intuitive){
+		//var username=document.getElementById('tempOne');
+		//document.getElementById('tempTwo').innerHTML="You are Sensing";
+		alert("You are Sensing");
+		temp2="Sensing";
+		
+
+	}else{
+		//document.getElementById('tempTwo').innerHTML="You are Introvert";
+		alert("You are Intuitive");
+		temp2="Intuitive";
+			
+	}
+}
+
+function Block3(){
+
+var Q3 = document.querySelector('input[name = "Q3"]:checked').value;
+var Q7 = document.querySelector('input[name = "Q7"]:checked').value;
+var Q11 = document.querySelector('input[name = "Q11"]:checked').value;
+var Q15 = document.querySelector('input[name = "Q15"]:checked').value;
+var Q19 = document.querySelector('input[name = "Q19"]:checked').value;
+
+if(Q3 == "3A"){
+	Thinking++;
+}else{
+	Feeling++;
+}
+
+if(Q7 == "7A"){
+	Thinking++;
+}else{
+	Feeling++;
+}
+
+if(Q11 == "11A"){
+	Thinking++;
+}else{
+	Feeling++;
+}
+
+if(Q15 == "15A"){
+	Thinking++;
+}else{
+	Feeling++;
+}
+
+if(Q19 == "19A"){
+	Thinking++;
+}else{
+	Feeling++;
+}
+
+	if(Thinking>Feeling){
+		//var username=document.getElementById('tempOne');
+		//document.getElementById('tempOne').innerHTML="You are Thinking";
+		alert("You are Thinking");
+		temp3="Thinking";
+		
+
+	}else{
+		//document.getElementById('tempOne').innerHTML="You are Feeling";
+		alert("You are Feeling");
+		temp3="Feeling";
+		
+	}
+}
+
+function Block4(){
+
+
+var Q4 = document.querySelector('input[name = "Q4"]:checked').value;
+var Q8 = document.querySelector('input[name = "Q8"]:checked').value;
+var Q12 = document.querySelector('input[name = "Q12"]:checked').value;
+var Q16 = document.querySelector('input[name = "Q16"]:checked').value;
+var Q20 = document.querySelector('input[name = "Q20"]:checked').value;
+
+
+if(Q4 == "4A"){
+	Judging++;
+}else{
+	Perceiving++;
+}
+
+if(Q8 == "8A"){
+	Judging++;
+}else{
+	Perceiving++;
+}
+
+if(Q12 == "12A"){
+	Judging++;
+}else{
+	Perceiving++;
+}
+
+if(Q16 == "16A"){
+	Judging++;
+}else{
+	Perceiving++;
+}
+
+if(Q20 == "20A"){
+	Judging++;
+}else{
+	Perceiving++;
+}
+
+	if(Judging>Perceiving){
+		//var username=document.getElementById('tempOne');
+		//document.getElementById('tempOne').innerHTML="You are Judging";
+		alert("You are Judging");
+		temp4="Judging";
+		
+	}else{
+		//document.getElementById('tempOne').innerHTML="You are Perceiving";
+		alert("You are Perceiving");
+		temp4="Perceiving";
+		
+	}
+}
+
+// Db Query
+
+function insert()
+{
+	var db=window.openDatabase("Database","1.0","MBDB",200000);
+	db.transaction(PopulateDB,errorDB,SuccessDB);
+}
+
+function PopulateDB(tx)
+{
+	tx.executeSql('create table if not exists Personality(username,Behaviour1,Behaviour2,Behaviour3,Behaviour4)');
+	tx.executeSql('insert into Personality(username,Behaviour1,Behaviour2,Behaviour3,Behaviour4) values("'+user+'","'+temp+'","'+temp2+'","'+temp3+'","'+temp4+'")');
+	
+	//alert("PopulateDB success");	
+}
+
+function errorDB(tx,err)
+{
+	//alert("Error has occured !!"+err);
+}
+
+function SuccessDB()
+{
+	//alert("Transaction saved successfully !!");				
+}
+
+function showRecords()
+{
+	//alert("showRecords");
+
+	var db=window.openDatabase("Database","1.0","MBDB",200000);
+	db.transaction(queryDB, errorDB);
+	
+	//alert("showRecords success");
+}
+
+function queryDB(tx)
+{
+	//alert("queryDB");
+	
+	tx.executeSql('select * from Personality where username = ("'+user+'")',[],querySuccess,errorDB);
+	
+	//alert("queryDB success");
+}
+
+function querySuccess(tx,results)
+{
+	//alert("querySuccess");
+	
+	var htmlstn="";
+	var len=results.rows.length;
+	document.write("<h1>Personality Details</h1>");				
+	
+	document.write("<table border='1'><tr><th>Sr No<th>username<th>Behavior1<th>Behavior2<th>Behavior3<th>Behavior4</tr>");
+	
+	for(var i=0;i<len;i++)
+	{
+		document.write("<tr><td>"+i+"<td>"
+					+results.rows.item(i).username+"<td>"
+					+results.rows.item(i).Behaviour1+"<td>"
+					+results.rows.item(i).Behaviour2+"<td>"
+					+results.rows.item(i).Behaviour3+"<td>"
+					+results.rows.item(i).Behaviour4+"</tr>");
+	}
+
+	document.write("</table><br/><a href='Home.html'>Home</a>");
+
+	//alert("querySuccess success");
+
+}
+
+
+
+</script>
+</head>
+<body>
+<form name="Assessment">
+<div>
+
+<!--1:<br/>
+  <input type="radio" name="Q1"  id="1A" value="1A">expend energy, enjoy groups<br>
+  <input type="radio" name="Q1"  id="1B" value="1B">conserve energy, enjoy one-on-one<br>
+-->
+
+<label><b>Question 1</b></label><br>
+  <input type="radio" name="Q1" id="1A" value="1A"> expend energy, enjoy groups<br>
+  <input type="radio" name="Q1" id="1B" value="1B"> conserve energy, enjoy one-on-one<br>
+  <br>
+
+<label><b>Question 2</b></label><br>
+  <input type="radio" name="Q2" id="2A" value="2A">interpret literally<br>
+  <input type="radio" name="Q2" id="2B" value="2B"> look for meaning and possibilities<br>
+  <br>
+
+
+<label><b>Question 3</b></label><br>
+  <input type="radio" name="Q3" id="3A" value="3A"> logical, thinking, questioning<br>
+  <input type="radio" name="Q3" id="3B" value="3B"> empathetic, feeling, accommodating<br>
+  <br>
+
+  <label><b>Question 4</b></label><br>
+  <input type="radio" name="Q4" id="4A" value="4A"> organized, orderly<br>
+  <input type="radio" name="Q4" id="4B" value="4B"> flexible, adaptable<br>
+  <br>
+
+<label><b>Question 5</b></label><br>
+  <input type="radio" name="Q5" id="5A" value="5A"> more outgoing, think out loud<br>
+  <input type="radio" name="Q5" id="5B" value="5B"> more reserved, think to yourself<br>
+  <br>
+
+
+<label><b>Question 6</b></label><br>
+  <input type="radio" name="Q6" id="6A" value="6A"> practical, realistic, experiential<br>
+  <input type="radio" name="Q6" id="6B" value="6B"> imaginative, innovative, theoretical<br>
+  <br>
+
+
+<label><b>Question 7</b></label><br>
+  <input type="radio" name="Q7" id="7A" value="7A"> candid, straight forward, frank<br>
+  <input type="radio" name="Q7" id="7B" value="7B"> tactful, kind, encouraging<br>
+  <br>
+
+
+<label><b>Question 8</b></label><br>
+  <input type="radio" name="Q8" id="8A" value="8A">plan, schedule<br>
+  <input type="radio" name="Q8" id="8B" value="8B"> unplanned, spontaneous<br>
+  <br>
+
+
+<label><b>Question 9</b></label><br>
+  <input type="radio" name="Q9" id="9A" value="9A"> seek many tasks, public activities, interaction with others<br>
+  <input type="radio" name="Q9" id="9B" value="9B"> seek private, solitary activities with quiet to concentrate<br>
+  <br>
+
+
+<label><b>Question 10</b></label><br>
+  <input type="radio" name="Q10" id="10A" value="10A"> standard, usual, conventional<br>
+  <input type="radio" name="Q10" id="10B"  value="10B"> different, novel, unique<br>
+  <br>
+
+
+<label><b>Question 11</b></label><br>
+  <input type="radio" name="Q11" id="11A" value="11A">firm, tend to criticize, hold the line<br>
+  <input type="radio" name="Q11" id="11B" value="11B"> gentle, tend to appreciate<br>
+  <br>
+
+<label><b>Question 12</b></label><br>
+  <input type="radio" name="Q12" id="12A" value="12A">regulated, structured<br>
+  <input type="radio" name="Q12" id="12B" value="12B"> easygoing, “live” and “let live”<br>
+  <br>
+
+
+<label><b>Question 13</b></label><br>
+  <input type="radio" name="Q13" id="13A" value="13A"> external, communicative, express yourself<br>
+  <input type="radio" name="Q13" id="13B" value="13B"> internal, reticent, keep to yourself<br>
+  <br>
+
+
+<label><b>Question 14</b></label><br>
+  <input type="radio" name="Q14" id="14A" value="14A"> focus on here-and-now<br>
+  <input type="radio" name="Q14" id="14B" value="14B"> look to the future, global perspective, “big picture”<br>
+  <br>
+
+
+<label><b>Question 15</b></label><br>
+  <input type="radio" name="Q15" id="15A" value="15A"> tough-minded, just<br> 
+  <input type="radio" name="Q15" id="15B" value="15B"> tender-hearted, merciful<br>
+  <br>
+
+
+<label><b>Question 16</b></label><br>
+  <input type="radio" name="Q16" id="16A" value="16A"> preparation, plan ahead<br>
+  <input type="radio" name="Q16" id="16B" value="16B"> go with the flow, adapt as you go<br>
+  <br>
+
+<label><b>Question 17</b></label><br>
+  <input type="radio" name="Q17" id="17A" value="17A"> active, initiate<br>
+  <input type="radio" name="Q17" id="17B" value="17B"> reflective, deliberate<br>
+  <br>
+
+<label><b>Question 18</b></label><br>
+  <input type="radio" name="Q18" id="18A" value="18A"> facts, things, “what is”<br>
+  <input type="radio" name="Q18" id="18A" value="18A"> ideas, dreams, “what could be,” philosophical<br>
+  <br>
+
+<label><b>Question 19</b></label><br>
+  <input type="radio" name="Q19" id="19A" value="19A"> matter of fact, issue-oriented<br>
+  <input type="radio" name="Q19" id="19A" value="19A">sensitive, people-oriented, compassionate<br>
+  <br>
+
+<label><b>Question 20</b></label><br>
+  <input type="radio" name="Q20" id="20A" value="20A"> control, govern<br>
+  <input type="radio" name="Q20" id="20B" value="20B"> latitude, freedom<br>
+  <br>
+
+<button type="button" onclick="dataSubmit();">Finish</button>
+<button type="button" onclick="showRecords();">View Record</button>
+
+
+</div>
+</form>
+
+</body>
+</html>

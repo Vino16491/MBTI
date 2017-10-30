@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<title></title>
+
+	<style>
+
+		
+		body 
+		{
+			font-family:"Comic Sans MS", cursive, sans-serif;
+			font-weight: bold;
+			font-style: italic;
+      		background-color: #EFD9DC;
+		}
+
+		img.avatar 
+		{
+   			width: 50%;
+    		border-radius: 70%;
+    	}
+
+		button 
+		{
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 14px 20px;
+		    margin: 8px 0;
+		    border: none;
+		    cursor: pointer;
+		    width: 100%;
+		}
+
+	</style>
+
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+
+		var user = localStorage.getItem("username");
+
+		//alert(user);		
+	
+		function onBodyLoad()
+		{
+	   		document.addEventListener("deviceready",onDeviceReady,false);
+		}		
+		
+		function onDeviceReady()
+		{
+    		 //alert("PhoneGap is ready");			
+		}
+
+		function exitFromApp()
+        {
+             navigator.app.exitApp();
+        }
+
+
+
+</script>
+
+</head>
+<body onload="onBodyLoad()">
+<form name="Home">
+<div>
+<p>Thank You for completing the test, Here are Your results</p>
+<p><b>Your Personality type is ISTJ</b></p>
+
+</div>
+
+<div class="imgcontainer">
+	<p>One of the famous person who has ISTJ personality is Elizabeth II</p>
+    <img src="ISTJ.jpg" alt="Avatar" class="avatar">
+</div>
+
+<div>
+<p>The personality test is based on Myers-Briggs Type Indicator (MBTI)</p>
+<br/>
+<p>ISTJs are responsible organizers, driven to create and enforce order within systems and institutions. They are neat and orderly, inside and out, and tend to have a procedure for everything they do. Reliable and dutiful, ISTJs want to uphold tradition and follow regulations.
+ISTJs are steady, productive contributors. Although they are Introverted, ISTJs are rarely isolated; typical ISTJs know just where they belong in life, and want to understand how they can participate in established organizations and systems. They concern themselves with maintaining the social order and making sure that standards are met.</p>
+
+</div>
+<div>
+<button type="button" onclick="exitFromApp();">Close</button>
+</div>
+
+</form>
+
+</body>
+</html>

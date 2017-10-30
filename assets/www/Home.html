@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<title></title>
+
+	<style>
+
+		
+		body 
+		{
+			font-family:"Comic Sans MS", cursive, sans-serif;
+			font-weight: bold;
+			font-style: italic;
+
+
+    		background-image: url("tree_v2.png");
+    		background-repeat: no-repeat;
+    		background-position: right center;
+
+    		background-color: #EFD9DC;
+		}
+
+		button 
+		{
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 14px 20px;
+		    margin: 8px 0;
+		    border: none;
+		    cursor: pointer;
+		    width: 100%;
+		}
+
+	</style>
+
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+
+		var user = localStorage.getItem("username");
+
+		//alert(user);		
+	
+		function onBodyLoad()
+		{
+	   		document.addEventListener("deviceready",onDeviceReady,false);
+		}		
+		
+		function onDeviceReady()
+		{
+    		 //alert("PhoneGap is ready");			
+		}
+
+		function Assessment()
+		{		
+            window.location.href="Assessment.html";        
+		}
+
+
+
+</script>
+
+</head>
+<body onload="onBodyLoad()">
+<form name="Home">
+
+<p>Welcome to Personality Evaluator</p>
+
+<br/>
+
+
+<p>The personality test is based on Myers-Briggs Type Indicator (MBTI)</p>
+<br/>
+<p>Myers-Briggs Type Indicator (MBTI) is a personality test designed to assist a person in identifying some significant personal preferences. Katharine Cook Briggs and her daughter Isabel Briggs Myers developed the Indicator during World War II, and its criteria follow from Carl Jung's theories in his work Psychological Types.</p>
+
+<p>
+The test is made of four different dichotomies or personality descriptions. 
+<br>One can either be: 
+<br>1. Introverted or Extroverted 
+<br>2. Sensing or Intuitive 
+<br>3. Thinking or Feeling 
+<br>4. Judging or Perceptive
+
+<br>
+<br>
+
+
+<p>Test includes 20 questions</p>
+
+<p>Choose the answer that best represents your tendencies. Do not think too hard; go with your first instinct. This is a self-discovery tool so there are no wrong answers. This test takes approximately 10 minutes and is not timed. Begin! </p>
+<p>Please click on below button to start the test</p>
+
+<button type="button" onclick="Assessment()">Start Assessment</button>
+
+</p>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<title></title>
+
+	<style>
+
+		
+		body 
+		{
+			font-family:"Comic Sans MS", cursive, sans-serif;
+			font-weight: bold;
+			font-style: italic;
+      		background-color: #EFD9DC;
+		}
+
+		img.avatar 
+		{
+   			width: 50%;
+    		border-radius: 70%;
+    	}
+
+		button 
+		{
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 14px 20px;
+		    margin: 8px 0;
+		    border: none;
+		    cursor: pointer;
+		    width: 100%;
+		}
+
+	</style>
+
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+
+		var user = localStorage.getItem("username");
+
+		//alert(user);		
+	
+		function onBodyLoad()
+		{
+	   		document.addEventListener("deviceready",onDeviceReady,false);
+		}		
+		
+		function onDeviceReady()
+		{
+    		 //alert("PhoneGap is ready");			
+		}
+
+		function exitFromApp()
+        {
+             navigator.app.exitApp();
+        }
+
+
+
+</script>
+
+</head>
+<body onload="onBodyLoad()">
+<form name="Home">
+<div>
+<p>Thank You for completing the test, Here are Your results</p>
+<p><b>Your Personality type is ENFJ</b></p>
+
+</div>
+
+<div class="imgcontainer">
+	<p>One of the famous person who has ENFJ personality is SHAHRUKH KHAN</p>
+    <img src="ENFJ.jpg" alt="Avatar" class="avatar">
+</div>
+
+<div>
+<p>The personality test is based on Myers-Briggs Type Indicator (MBTI)</p>
+<br/>
+<p>ENFJs are idealist organizers, driven to implement their vision of what is best for humanity. They often act as catalysts for human growth because of their ability to see potential in other people and their charisma in persuading others to their ideas. They are focused on values and vision, and are passionate about the possibilities for people.
+ENFJs are typically energetic and driven, and often have a lot on their plates. They are tuned into the needs of others and acutely aware of human suffering; however, they also tend to be optimistic and forward-thinking, intuitively seeing opportunity for improvement. The ENFJ is ambitious, but their ambition is not self-serving: rather, they feel personally responsible for making the world a better place.</p>
+
+</div>
+<div>
+<button type="button" onclick="exitFromApp();">Close</button>
+</div>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<title></title>
+
+	<style>
+
+		
+		body 
+		{
+			font-family:"Comic Sans MS", cursive, sans-serif;
+			font-weight: bold;
+			font-style: italic;
+      		background-color: #EFD9DC;
+		}
+
+		img.avatar 
+		{
+   			width: 50%;
+    		border-radius: 70%;
+    	}
+
+		button 
+		{
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 14px 20px;
+		    margin: 8px 0;
+		    border: none;
+		    cursor: pointer;
+		    width: 100%;
+		}
+
+	</style>
+
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+
+		var user = localStorage.getItem("username");
+
+		//alert(user);		
+	
+		function onBodyLoad()
+		{
+	   		document.addEventListener("deviceready",onDeviceReady,false);
+		}		
+		
+		function onDeviceReady()
+		{
+    		 //alert("PhoneGap is ready");			
+		}
+
+		function exitFromApp()
+        {
+             navigator.app.exitApp();
+        }
+
+
+
+</script>
+
+</head>
+<body onload="onBodyLoad()">
+<form name="Home">
+<div>
+<p>Thank You for completing the test, Here are Your results</p>
+<p><b>Your Personality type is ISFP</b></p>
+
+</div>
+
+<div class="imgcontainer">
+	<p>One of the famous person who has ISFP personality is LATA MANGESHKAR </p>
+    <img src="ISFP.jpeg" alt="Avatar" class="avatar">
+</div>
+
+<div>
+<p>The personality test is based on Myers-Briggs Type Indicator (MBTI)</p>
+<br/>
+<p>ISFPs are gentle caretakers who live in the present moment and enjoy their surroundings with cheerful, low-key enthusiasm. They are flexible and spontaneous, and like to go with the flow to enjoy what life has to offer. ISFPs are quiet and unassuming, and may be hard to get to know. However, to those who know them well, the ISFP is warm and friendly, eager to share in life's many experiences.
+ISFPs have a strong aesthetic sense and seek out beauty in their surroundings. They are attuned to sensory experience, and often have a natural talent for the arts. ISFPs especially excel at manipulating objects, and may wield creative tools like paintbrushes and sculptor's knives with great mastery.</p>
+
+</div>
+<div>
+<button type="button" onclick="exitFromApp();">Close</button>
+</div>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<title></title>
+
+<style>
+form {
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    border: 3px solid #f1f1f1;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 48px 0 24px 0;
+}
+
+img.avatar {
+    width: 60%;
+    border-radius: 80%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+
+<head>
+		
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+	<script type="text/javascript" charset="utf-8">			
+	
+		
+        //var tempu = document.getElementById("username").value;
+        //var tempp = document.getElementById("password").value;
+
+
+        function onBodyLoad()
+			{
+	   			document.addEventListener("deviceready",onDeviceReady,false);
+			}		
+		
+		function onDeviceReady()
+			{
+    			 //alert("PhoneGap is ready");			
+			}
+
+
+        function login()
+        {
+            //alert("login function");
+            if(document.getElementById("username").value === "admin" && document.getElementById("password").value === "pass123") 
+            {
+                window.location.href="Homeadmin.html";
+            }
+            else
+            {
+                //alert("else condition");
+                OpenDB();
+            }
+        }
+
+
+        function OpenDB()
+        {    
+            //alert("OpenDB");
+
+            var db = window.openDatabase("Database","1.0","MBDB",300000);
+            db.transaction(populateDB,ErrorDB,successDB);
+
+            //alert("OpenDB Success");
+        } 
+        
+        function populateDB(tx)
+        { 
+            //alert("populateDB");
+
+            
+            tx.executeSql('select * from UserInfo where username="'+document.getElementById("username").value+'" AND password="'+document.getElementById("password").value+'"',[],successDB,ErrorDB);
+
+            
+
+            //alert("Query Fired");
+
+            //alert("populateDB success");
+
+        }
+        
+        function successDB(tx,results)
+        {
+            //alert("successDB");
+
+            var len=results.rows.length;
+            if(len>0)
+            {                
+                window.localStorage.setItem("loggedIn", 1);
+                window.localStorage.setItem("username", document.getElementById("username").value); 
+                alert("Login Success");
+                home();   
+            }
+            else
+            {
+                alert("Wrong Username or Password");
+            }
+
+            //alert("successDB success");
+            
+        }
+
+        function ErrorDB(tx,err)
+        {            
+            alert("Contact Administrator - Error Passing SQL :" +err);
+        }
+
+
+        function Register() 
+        {
+            window.location.href="Register.html";
+        }
+
+        function home()
+        {
+            window.location.href="Home.html";
+        }       
+
+	</script>
+
+</head>
+<body onload="onBodyLoad()">
+
+<form name="Login">
+<h2><label for="Label"></label></h2>
+  <div class="imgcontainer">
+    <img src="login.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label><b>Username</b></label>
+    <input type="text" id="username" placeholder="Enter Username" name="uname" required>
+
+    <label><b>Password</b></label>
+    <input type="password" id="password" placeholder="Enter Password" name="psw" required>
+        
+    <button type="button" onclick="login();">Login</button>
+    
+    <br/>
+    <br/>
+    <label><b>OR</b></label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="registerbtn" onclick="Register()">Register</a></button>
+    
+  </div>
+
+
+</form>
+
+</body>
+</html>
+
